@@ -21,12 +21,29 @@ class MainActivity : AppCompatActivity() {
                     '+' -> num1 = sum(num1!!, num2!!)
                     '-' -> num1 = sub(num1!!, num2!!)
                     'x' -> num1 = mul(num1!!, num2!!)
+                    '/' -> num1 = div(num1!!, num2!!)
                 }
                 displayTXT.text = num1.toString()
+                num1 = null
+                num2 = null
                 signal = null
             }
         }
 
+        zeroTXT.setOnClickListener {
+            if (signal == null){
+                displayTXT.text = null
+                num1 = zeroTXT.text.toString().toInt()}
+            else
+                num2 = zeroTXT.text.toString().toInt()
+
+            text = displayTXT.text.toString()
+
+            if (text == "00")
+                displayTXT.text = zeroTXT.text
+            else
+                displayTXT.text = displayTXT.text.toString() + zeroTXT.text
+        }
         oneTXT.setOnClickListener {
             if (signal == null){
                 displayTXT.text = null
@@ -57,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         }
         threeTXT.setOnClickListener {
             if (signal == null){
-                displayTXT.text = null
+                /*displayTXT.text = null*/
                 num1 = threeTXT.text.toString().toInt()}
             else
                 num2 = threeTXT.text.toString().toInt()
@@ -70,9 +87,19 @@ class MainActivity : AppCompatActivity() {
                 displayTXT.text = displayTXT.text.toString() + threeTXT.text
         }
         plusTXT.setOnClickListener {
-            signal = '+'
-            text = displayTXT.text.toString() + signal
-            displayTXT.text = text
+            if (num2 == null){
+                signal = '+'
+                text = displayTXT.text.toString() + signal
+                displayTXT.text = text
+            }
+            else {
+                num1 = sum(num1!!, num2!!)
+                num2 = null
+                signal = '+'
+
+                text = num1.toString() + signal
+                displayTXT.text = text
+            }
         }
         fourTXT.setOnClickListener {
             if (signal == null){
@@ -117,9 +144,19 @@ class MainActivity : AppCompatActivity() {
                 displayTXT.text = displayTXT.text.toString() + sixTXT.text
         }
         minusTXT.setOnClickListener {
-            signal = '-'
-            text = displayTXT.text.toString() + signal
-            displayTXT.text = text
+            if (num2 == null){
+                signal = '-'
+                text = displayTXT.text.toString() + signal
+                displayTXT.text = text
+            }
+            else {
+                num1 = sub(num1!!, num2!!)
+                num2 = null
+                signal = '-'
+
+                text = num1.toString() + signal
+                displayTXT.text = text
+            }
         }
         sevenTXT.setOnClickListener {
             if (signal == null){
@@ -164,8 +201,37 @@ class MainActivity : AppCompatActivity() {
                 displayTXT.text = displayTXT.text.toString() + nineTXT.text
         }
         timesTXT.setOnClickListener {
-            signal = 'x'
-            text = displayTXT.text.toString() + signal
+            if (num2 == null){
+                signal = 'x'
+                text = displayTXT.text.toString() + signal
+                displayTXT.text = text
+            }
+            else {
+                num1 = mul(num1!!, num2!!)
+                num2 = null
+                signal = 'x'
+
+                text = num1.toString() + signal
+                displayTXT.text = text
+            }
+        }
+        barTXT.setOnClickListener {
+            if (num2 == null){
+                signal = '/'
+                text = displayTXT.text.toString() + signal
+                displayTXT.text = text
+            }
+            else {
+                num1 = div(num1!!, num2!!)
+                num2 = null
+                signal = '/'
+
+                text = num1.toString() + signal
+                displayTXT.text = text
+            }
+        }
+        commaTXT.setOnClickListener {
+            text = displayTXT.text.toString() + commaTXT.toString()
             displayTXT.text = text
         }
     }
@@ -182,6 +248,10 @@ class MainActivity : AppCompatActivity() {
     private fun mul(num1: Int, num2:Int) : Int{
         signal = null
         return num1 * num2
+    }
+    private fun div(num1: Int, num2:Int) : Int{
+        signal = null
+        return num1 / num2
     }
 
 }

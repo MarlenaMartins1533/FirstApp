@@ -24,7 +24,17 @@
             android:text="="
             android:textStyle="bold"
             android:padding="40dp"
-            android:layout_below="@id/plusTXT"/>
+            android:layout_below="@id/threeTXT"/>
+    <!-- zero -->
+    <TextView
+            android:id="@+id/zeroTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textStyle="bold"
+            android:padding="40dp"
+            android:layout_below="@id/oneTXT"
+            android:layout_toRightOf="@id/igualTXT"/>
     <!-- one -->
     <TextView
         android:id="@+id/oneTXT"
@@ -64,7 +74,7 @@
             android:textStyle="bold"
             android:padding="40dp"
             android:layout_below="@id/minusTXT"
-            android:layout_toRightOf="@id/threeTXT"/>
+            android:layout_toRightOf="@id/commaTXT"/>
 
     <!-- four -->
     <TextView
@@ -104,7 +114,7 @@
             android:textStyle="bold"
             android:padding="40dp"
             android:layout_below="@id/timesTXT"
-            android:layout_toRightOf="@id/sixTXT"/>
+            android:layout_toRightOf="@id/threeTXT"/>
     <!-- seven -->
     <TextView
             android:id="@+id/sevenTXT"
@@ -142,7 +152,27 @@
             android:text="x"
             android:textStyle="bold"
             android:padding="40dp"
+            android:layout_below="@id/barTXT"
+            android:layout_toRightOf="@id/sixTXT"/>
+    <!-- bar -->
+    <TextView
+            android:id="@+id/barTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/ "
+            android:textStyle="bold"
+            android:padding="40dp"
             android:layout_below="@id/displayTXT"
             android:layout_toRightOf="@id/nineTXT"/>
+    <!-- comma -->
+    <TextView
+            android:id="@+id/commaTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=", "
+            android:textStyle="bold"
+            android:padding="40dp"
+            android:layout_below="@id/oneTXT"
+            android:layout_toRightOf="@id/zeroTXT" />
 
 </RelativeLayout>
