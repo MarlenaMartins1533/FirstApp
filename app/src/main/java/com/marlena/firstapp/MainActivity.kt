@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
     private var num2: Int? = null
     private var signal: Char? = null
     private var result = false
+    private var comma = false
+    private var commanext = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity() {
                 result = true
                 num2 = null
                 signal = null
+                comma = false
+                commanext = false
             }
         }
 
@@ -46,11 +50,14 @@ class MainActivity : AppCompatActivity() {
                 num1 = text.toInt()
             }
             else if((num2 == null) || (num2 == 0)) {
-                num2 = 0
-            }
-            else {
                 text = num2.toString() + "0"
                 displayTXT.text = text
+                num2 = text.toInt()
+            }
+            else {
+
+                text = num2.toString() + "0"
+                displayTXT.text = "$num1$signal$text"
                 num2 = text.toInt()
             }
         }
@@ -75,20 +82,28 @@ class MainActivity : AppCompatActivity() {
 
         plusTXT.setOnClickListener {
             result = false
+            /*if (num1 == null) num1 = 0
+            * if commanext == true*/
 
-            if ((num2 == null) || (signal != null)){
-                signal = '+'
-                text = "$num1$signal"
-                displayTXT.text = text
-            }
+            if ((num2 == null) && (signal != null)) signal = '+'
             else {
-                num1 = sum(num1!!, num2!!)
-                num2 = null
-                signal = '+'
-
-                text = "$num1$signal"
-                displayTXT.text = text
+                if (num2 != null && signal != null){
+                    when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
+                        '+' -> num1 = sum(num1!!, num2!!)
+                        '-' -> num1 = sub(num1!!, num2!!)
+                        'x' -> num1 = mul(num1!!, num2!!)
+                        '/' -> num1 = div(num1!!, num2!!)
+                    }
+                    displayTXT.text = num1.toString()
+                    num2 = null
+                    comma = false
+                    commanext = false
+                    signal = '+'
+                }
             }
+            signal = '+'
+            text = "$num1$signal"
+            displayTXT.text = text
         }
 
         minusTXT.setOnClickListener {
@@ -136,7 +151,7 @@ class MainActivity : AppCompatActivity() {
                 displayTXT.text = text
             }
             else {
-                num1 = sum(num1!!, num2!!)
+                num1 = div(num1!!, num2!!)
                 num2 = null
                 signal = '/'
 
@@ -146,8 +161,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         commaTXT.setOnClickListener {
-            text = displayTXT.text.toString() + ','
-            displayTXT.text = text
+            if (comma == true) {
+                text = displayTXT.text.toString()
+                displayTXT.text = text
+            }
+            else {
+                comma = true
+                commanext = true
+                text = displayTXT.text.toString() + ','
+                displayTXT.text = text
+            }
         }
     }
 
