@@ -16,9 +16,9 @@
         android:gravity="end"
         android:padding="50dp"
         android:layout_alignParentTop="true"/>
-    !-- igual -->
+    !-- equal -->
     <TextView
-            android:id="@+id/igualTXT"
+            android:id="@+id/equalTXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="="
@@ -34,7 +34,7 @@
             android:textStyle="bold"
             android:padding="40dp"
             android:layout_below="@id/oneTXT"
-            android:layout_toRightOf="@id/igualTXT"/>
+            android:layout_toRightOf="@id/equalTXT"/>
     <!-- one -->
     <TextView
         android:id="@+id/oneTXT"
@@ -74,7 +74,7 @@
             android:textStyle="bold"
             android:padding="40dp"
             android:layout_below="@id/minusTXT"
-            android:layout_toRightOf="@id/commaTXT"/>
+            android:layout_toRightOf="@id/dotTXT"/>
 
     <!-- four -->
     <TextView
@@ -164,12 +164,12 @@
             android:padding="40dp"
             android:layout_below="@id/displayTXT"
             android:layout_toRightOf="@id/nineTXT"/>
-    <!-- comma -->
+    <!-- dot -->
     <TextView
-            android:id="@+id/commaTXT"
+            android:id="@+id/dotTXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=", "
+            android:text=". "
             android:textStyle="bold"
             android:padding="40dp"
             android:layout_below="@id/oneTXT"
