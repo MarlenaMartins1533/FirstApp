@@ -19,6 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         equalTXT.setOnClickListener {
+            if (signal != null && num1 != null && num2 == "0") {
+                result = true
+                num2 = null
+                signal = null
+                displayTXT.text = num1
+            }
             if (signal != null && num1 != null && num2 != null){
                 when (signal) {
                     '+' -> num1 = sum(num1!!, num2!!)
@@ -26,14 +32,12 @@ class MainActivity : AppCompatActivity() {
                     'x' -> num1 = mul(num1!!, num2!!)
                     '/' -> num1 = div(num1!!, num2!!)
                 }
-                displayTXT.text = num1
                 result = true
                 num2 = null
                 signal = null
                 dot = false
-            }
-            if (signal != null && num1 != null && num2 == "0") {
 
+                displayTXT.text = num1
             }
         }
 
@@ -42,23 +46,22 @@ class MainActivity : AppCompatActivity() {
                 result = false
                 num1 = null //anula num1 se for resultado
                 text = "0"
-                displayTXT.text = text
             }
             else if (signal == null) {
                 text = num1 + "0"
-                displayTXT.text = text
                 num1 = text
             }
             else if(num2 == null) {
+                num2 = "0"
+                text = "0"
                 text = "$num1$signal$text"
-                displayTXT.text = text
             }
             else {
                 text = num2 + "0"
                 num2 = text
                 text = "$num1$signal$text"
-                displayTXT.text = text
             }
+            displayTXT.text = text
         }
         oneTXT.setOnClickListener {
             clickNum(oneTXT) }
@@ -81,22 +84,16 @@ class MainActivity : AppCompatActivity() {
 
         plusTXT.setOnClickListener {
             result = false
+
             if (num1 == null) num1 = "0"
-
-            if ((num2 == null) && (signal != null)) {
-                signal = '+'
-
-            } else {
-                if (num2 != null && signal != null){
+            else { if (num2 != null && signal != null){
                     when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
                         '+' -> num1 = sum(num1!!, num2!!)
                         '-' -> num1 = sub(num1!!, num2!!)
                         'x' -> num1 = mul(num1!!, num2!!)
                         '/' -> num1 = div(num1!!, num2!!)
                     }
-                    displayTXT.text = num1
                     num2 = null
-                    signal = '+'
                 }
             }
             signal = '+'
