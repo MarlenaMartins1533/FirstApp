@@ -41,6 +41,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        CCTXT.setOnClickListener {
+            result = false
+            dot = false
+            num1 = null
+            signal = null
+            num2 = null
+            text = "0"
+            displayTXT.text = "0"
+
+        }
+
         zeroTXT.setOnClickListener {
             if ((num1 == null) || result ) {
                 result = false
