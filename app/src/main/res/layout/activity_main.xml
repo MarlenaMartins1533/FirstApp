@@ -7,18 +7,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:background="@drawable/Background"
+        android:background="@drawable/background"
         tools:context=".MainActivity">
 
     <!-- display -->
     <TextView
             android:id="@+id/displayTXT"
-            android:layout_width="281dp"
+            android:layout_width="274dp"
             android:layout_height="wrap_content"
             android:text="00"
             android:gravity="end"
             android:padding="30dp"
-            android:background="@drawable/DisplayBackground"
+            android:background="#ffffff"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"/>
     <!-- CC -->
@@ -29,11 +29,11 @@
             android:text="CC"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+            android:background="#ffffff"
             android:layout_below="@id/displayTXT"/>
     <!-- BackSpace -->
     <TextView
-            android:id="@+id/BackSpaceTXT"
+            android:id="@+id/backSpaceTXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="   "
@@ -49,7 +49,7 @@
             android:text="CE"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/displayTXT"
             android:layout_alignEnd="@+id/barTXT"/>
 
@@ -62,7 +62,7 @@
             android:textStyle="bold"
             android:padding="30dp"
             android:layout_below="@id/displayTXT"
-            android:layout_toRightOf="@id/BackSpaceTXT"/>
+            android:layout_toRightOf="@id/backSpaceTXT"/>
     !-- equal -->
     <TextView
             android:id="@+id/equalTXT"
@@ -71,7 +71,7 @@
             android:text="="
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+               android:background="#ffffff"
             android:layout_below="@id/threeTXT"/>
     <!-- zero -->
     <TextView
@@ -81,7 +81,7 @@
             android:text="0"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/oneTXT"
             android:layout_toRightOf="@id/equalTXT"/>
     <!-- one -->
@@ -92,7 +92,7 @@
         android:text="1"
         android:textStyle="bold"
         android:padding="30dp"
-        android:background="@drawable/ButtonsBackground"
+          android:background="#ffffff"
         android:layout_below="@id/fourTXT"/>
     <!-- two -->
     <TextView
@@ -102,7 +102,7 @@
         android:text="2"
         android:textStyle="bold"
         android:padding="30dp"
-        android:background="@drawable/ButtonsBackground"
+          android:background="#ffffff"
         android:layout_below="@id/fiveTXT"
         android:layout_toRightOf="@id/oneTXT"/>
     <!-- three -->
@@ -113,7 +113,7 @@
         android:text="3"
         android:textStyle="bold"
         android:padding="30dp"
-        android:background="@drawable/ButtonsBackground"
+          android:background="#ffffff"
         android:layout_below="@id/sixTXT"
         android:layout_toRightOf="@id/twoTXT"/>
 
@@ -125,7 +125,7 @@
             android:text="+"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/minusTXT"
             android:layout_toRightOf="@id/dotTXT"/>
 
@@ -137,7 +137,7 @@
             android:text="4"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/sevenTXT"/>
     <!-- five -->
     <TextView
@@ -147,7 +147,7 @@
             android:text="5"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/eightTXT"
             android:layout_toRightOf="@id/fourTXT"/>
     <!-- six -->
@@ -158,7 +158,7 @@
             android:text="6"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/nineTXT"
             android:layout_toRightOf="@id/fiveTXT"/>
     <!-- minus -->
@@ -169,7 +169,7 @@
             android:text="- "
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/timesTXT"
             android:layout_toRightOf="@id/threeTXT"/>
     <!-- seven -->
@@ -180,7 +180,7 @@
             android:text="7"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/CCTXT"/>
     <!-- eight -->
     <TextView
@@ -190,7 +190,7 @@
             android:text="8"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/CCTXT"
             android:layout_toRightOf="@id/sevenTXT"/>
     <!-- nine -->
@@ -201,7 +201,7 @@
             android:text="9"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/CCTXT"
             android:layout_toRightOf="@id/eightTXT"/>
     <!-- times -->
@@ -212,7 +212,7 @@
             android:text="x"
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/barTXT"
             android:layout_toRightOf="@id/sixTXT"/>
     <!-- bar -->
@@ -223,7 +223,7 @@
             android:text="/ "
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/CCTXT"
             android:layout_toRightOf="@id/nineTXT"/>
     <!-- dot -->
@@ -234,7 +234,7 @@
             android:text=". "
             android:textStyle="bold"
             android:padding="30dp"
-            android:background="@drawable/ButtonsBackground"
+              android:background="#ffffff"
             android:layout_below="@id/oneTXT"
             android:layout_toRightOf="@id/zeroTXT" />
 

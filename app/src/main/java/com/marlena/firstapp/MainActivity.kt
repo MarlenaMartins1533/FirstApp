@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
                 result = true
                 num2 = null
                 signal = null
-                displayTXT.text = num1
             }
             if (signal != null && num1 != null && num2 != null){
                 when (signal) {
@@ -36,9 +35,8 @@ class MainActivity : AppCompatActivity() {
                 num2 = null
                 signal = null
                 dot = false
-
-                displayTXT.text = num1
             }
+            displayTXT.text = num1
         }
 
         CCTXT.setOnClickListener {
@@ -53,23 +51,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         CETXT.setOnClickListener {
-            if ((num1 == null) || result ) {
+            //num1 nulo ou não sempre entra quando signal é nulo; result true ou false sempre seta signal como nulo
+            if (signal == null) {
                 result = false
-                num1 = null //anula num1 se for resultado
+                dot = false
+                num1 = null
+                signal = null
+                num2 = null
                 text = "0"
-            }
-            else if (signal == null) {
-                text = num1 + "0"
-                num1 = text
-            }
-            else if(num2 == null) {
-                num2 = "0"
-                text = "0"
-                text = "$num1$signal$text"
             }
             else {
-                text = num2 + "0"
-                num2 = text
+                num2 = "0"
+                text = "0"
                 text = "$num1$signal$text"
             }
             displayTXT.text = text
