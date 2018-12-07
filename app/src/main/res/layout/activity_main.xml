@@ -18,8 +18,9 @@
             android:text="00"
             android:gravity="end"
             android:padding="30dp"
-            android:background="@drawable/Display2Background"
-            android:layout_alignParentTop="true" android:layout_marginTop="10dp"/>
+            android:background="@drawable/DisplayBackground"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"/>
     <!-- CC -->
     <TextView
             android:id="@+id/CCTXT"
@@ -30,6 +31,16 @@
             android:padding="30dp"
             android:background="@drawable/ButtonsBackground"
             android:layout_below="@id/displayTXT"/>
+    <!-- BackSpace -->
+    <TextView
+            android:id="@+id/BackSpaceTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   "
+            android:textStyle="bold"
+            android:padding="30dp"
+            android:layout_below="@id/displayTXT"
+            android:layout_toRightOf="@id/CCTXT"/>
     <!-- CE -->
     <TextView
             android:id="@+id/CETXT"
@@ -41,16 +52,7 @@
             android:background="@drawable/ButtonsBackground"
             android:layout_below="@id/displayTXT"
             android:layout_alignEnd="@+id/barTXT"/>
-    <!-- BackSpace -->
-    <TextView
-            android:id="@+id/BackSpaceTXT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   "
-            android:textStyle="bold"
-            android:padding="30dp"
-            android:layout_below="@id/displayTXT"
-            android:layout_toRightOf="@id/CCTXT"/>
+
     <!-- Space -->
     <TextView
             android:id="@+id/SpaceTXT"

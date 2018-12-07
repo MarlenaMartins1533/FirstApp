@@ -52,6 +52,29 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        CETXT.setOnClickListener {
+            if ((num1 == null) || result ) {
+                result = false
+                num1 = null //anula num1 se for resultado
+                text = "0"
+            }
+            else if (signal == null) {
+                text = num1 + "0"
+                num1 = text
+            }
+            else if(num2 == null) {
+                num2 = "0"
+                text = "0"
+                text = "$num1$signal$text"
+            }
+            else {
+                text = num2 + "0"
+                num2 = text
+                text = "$num1$signal$text"
+            }
+            displayTXT.text = text
+        }
+
         zeroTXT.setOnClickListener {
             if ((num1 == null) || result ) {
                 result = false
