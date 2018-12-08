@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         equalTXT.setOnClickListener {
+            var shownum: Double?
+
             if (signal != null && num1 != null && num2 == "0") {
                 result = true
                 num2 = null
@@ -36,7 +40,8 @@ class MainActivity : AppCompatActivity() {
                 signal = null
                 dot = false
             }
-            displayTXT.text = num1
+            shownum = num1.toString().toDouble()
+            displayTXT.text = "%.4f".format(shownum)
         }
 
         CCTXT.setOnClickListener {
@@ -61,9 +66,9 @@ class MainActivity : AppCompatActivity() {
                 text = "0"
             }
             else {
-                num2 = "0"
+                num2 = null
                 text = "0"
-                text = "$num1$signal$text"
+                text = "$num1$signal"
             }
             displayTXT.text = text
         }
@@ -131,23 +136,17 @@ class MainActivity : AppCompatActivity() {
 
         minusTXT.setOnClickListener {
             result = false
+
             if (num1 == null) num1 = "0"
-
-            if ((num2 == null) && (signal != null)) {
-                signal = '-'
-
-            } else {
-                if (num2 != null && signal != null){
-                    when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
-                        '+' -> num1 = sum(num1!!, num2!!)
-                        '-' -> num1 = sub(num1!!, num2!!)
-                        'x' -> num1 = mul(num1!!, num2!!)
-                        '/' -> num1 = div(num1!!, num2!!)
-                    }
-                    displayTXT.text = num1
-                    num2 = null
-                    signal = '-'
+            else { if (num2 != null && signal != null){
+                when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
+                    '+' -> num1 = sum(num1!!, num2!!)
+                    '-' -> num1 = sub(num1!!, num2!!)
+                    'x' -> num1 = mul(num1!!, num2!!)
+                    '/' -> num1 = div(num1!!, num2!!)
                 }
+                num2 = null
+            }
             }
             signal = '-'
             dot = false
@@ -157,23 +156,17 @@ class MainActivity : AppCompatActivity() {
 
         timesTXT.setOnClickListener {
             result = false
+
             if (num1 == null) num1 = "0"
-
-            if ((num2 == null) && (signal != null)) {
-                signal = 'x'
-
-            } else {
-                if (num2 != null && signal != null){
-                    when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
-                        '+' -> num1 = sum(num1!!, num2!!)
-                        '-' -> num1 = sub(num1!!, num2!!)
-                        'x' -> num1 = mul(num1!!, num2!!)
-                        '/' -> num1 = div(num1!!, num2!!)
-                    }
-                    displayTXT.text = num1
-                    num2 = null
-                    signal = 'x'
+            else { if (num2 != null && signal != null){
+                when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
+                    '+' -> num1 = sum(num1!!, num2!!)
+                    '-' -> num1 = sub(num1!!, num2!!)
+                    'x' -> num1 = mul(num1!!, num2!!)
+                    '/' -> num1 = div(num1!!, num2!!)
                 }
+                num2 = null
+            }
             }
             signal = 'x'
             dot = false
@@ -183,22 +176,16 @@ class MainActivity : AppCompatActivity() {
 
         barTXT.setOnClickListener {
             result = false
+
             if (num1 == null) num1 = "0"
-
-            if ((num2 == null) && (signal != null)) {
-                signal = '/'
-
-            } else {
-                if (num2 != null && signal != null){
-                    when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
-                        '+' -> num1 = sum(num1!!, num2!!)
-                        '-' -> num1 = sub(num1!!, num2!!)
-                        'x' -> num1 = mul(num1!!, num2!!)
-                        '/' -> num1 = div(num1!!, num2!!)
-                    }
-                    displayTXT.text = num1
-                    num2 = null
-                    signal = '/'
+            else { if (num2 != null && signal != null){
+                when (signal) { //nos outros sinais não precisa verificar prioridade aritmetica ainda
+                    '+' -> num1 = sum(num1!!, num2!!)
+                    '-' -> num1 = sub(num1!!, num2!!)
+                    'x' -> num1 = mul(num1!!, num2!!)
+                    '/' -> num1 = div(num1!!, num2!!)
+                }
+                num2 = null
                 }
             }
             signal = '/'
@@ -302,7 +289,13 @@ class MainActivity : AppCompatActivity() {
                 text = "$num1$signal$num2"
                 displayTXT.text = text
         }
-        else {
+        else if (num2 == "0") {
+                //adicionando numero ao num2 zerado
+                num2 = num
+                text = "$num1$signal$num2"
+                displayTXT.text = text
+        }
+        else{
             //adicionando numero ao num2
             text = "$num2$num"
             num2 = text
